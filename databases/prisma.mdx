@@ -1,0 +1,23 @@
+---
+title: 'Prisma'
+---
+
+<img src="/images/prisma.png" alt="Prisma" />
+
+Prisma in ShipKit enhances your database management with its powerful query builder and schema migration tools. It’s designed to work seamlessly in TypeScript environments, offering robust type safety and simplifying data access patterns across your application.
+
+## Schema
+
+The schema for Prisma is found in `prisma/schema.prisma`. This file contains the schema for the database tables and their relationships.
+
+## Usage
+
+```typescript
+import { prisma } from '~/core/db';
+
+const user = await prisma.user.findUnique({
+  where: {
+    id: userId,
+  },
+});
+```

@@ -1,0 +1,145 @@
+---
+title: 'Plan Cards'
+---
+
+<img src="/images/plancards.png" alt="Plan Cards" />
+
+## Usage
+
+<Tabs>
+  <Tab title="Astro">
+    ```tsx
+    ---
+    import { PlanCards } from '~/components';
+    import { getPlans } from '~/core/plan/server';
+
+    const plans = await getPlans();
+    ---
+    
+    <PlanCards title="Select a plan" plans={plans} />
+    ```
+  </Tab>
+
+  <Tab title="Next.js">
+    ```tsx
+    import { PlanCards } from '~/components';
+    import { getPlans } from '~/core/plan/server';
+
+    export default async function Page() {
+      const plans = await getPlans();
+
+      return <PlanCards title="Select a plan" plans={plans} />;
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Props
+
+<ResponseField name="plans" type="Plan[]" required>
+  List of plans to display. (<a href="#plan">Plan</a>)
+</ResponseField>
+
+<ResponseField name="title" type="string">
+  Title to display above the plans.
+</ResponseField>
+
+<ResponseField name="text" type="string">
+  Text to display below the title.
+</ResponseField>
+
+## Content
+
+To update the plans, edit `src/config/plan.ts`. The plans are split into `dev` and `production` plans. The `dev` plans are shown in development mode, and the `production` plans are shown in production mode.
+
+Make sure to update the `stripePriceId` with their respective Stripe price IDs.
+
+```typescript
+import type { Plan } from '~/core/plan';
+
+export const plans: Record<'dev' | 'production', Plan[]> = {
+  dev: [
+    {
+      id: 'starter',
+      name: 'Starter',
+      stripePriceId: 'price_...',
+      price: 10,
+      priceText: '$10 / month',
+      features: [
+        'Astro and Next.js boilerplate',
+        'Payments with Stripe',
+        'Auth - Lucia, Supabase & Clerk',
+        'React, Vue, Svelte, Solid & Preact',
+        'Drizzle & Prisma',
+        'PostgreSQL, MySQL, SQLite & more',
+        'Pre-built components',
+      ],
+      notIncludedFeatures: [
+        'Private Discord community',
+        'Lifetime updates',
+      ],
+    },
+    {
+      id: 'business',
+      name: 'Business',
+      stripePriceId: 'price_...',
+      price: 49,
+      priceText: '$49 / month',
+      isPopular: true,
+      features: [
+        'Astro and Next.js boilerplate',
+        'Payments with Stripe',
+        'Auth - Lucia, Supabase & Clerk',
+        'React, Vue, Svelte, Solid & Preact',
+        'Drizzle & Prisma',
+        'PostgreSQL, MySQL, SQLite & more',
+        'Pre-built components',
+        'Private Discord community',
+        'Lifetime updates',
+      ],
+    },
+  ],
+
+  production: [],
+};
+```
+
+## Types
+
+### Plan
+
+```typescript
+import type { Plan } from '~/core/plan';
+```
+
+<ResponseField name="id" type="string" required>
+  Unique identifier for the plan (.eg. starter, business).
+</ResponseField>
+
+<ResponseField name="name" type="string" required>
+  The name of the plan.
+</ResponseField>
+
+<ResponseField name="price" type="number" required>
+  The price of the plan.
+</ResponseField>
+
+<ResponseField name="priceText" type="string" required>
+  The price of the plan as text (including the currency and term).
+</ResponseField>
+
+<ResponseField name="stripePriceId" type="string" required>
+  The Stripe price ID for the plan.
+</ResponseField>
+
+<ResponseField name="features" type="string[]" required>
+  List of features included in the plan.
+</ResponseField>
+
+<ResponseField name="notIncludedFeatures" type="string[]">
+  List of features not included in the plan.
+</ResponseField>
+
+<ResponseField name="isPopular" type="boolean">
+  Whether the plan should be marked as popular or not.
+</ResponseField>

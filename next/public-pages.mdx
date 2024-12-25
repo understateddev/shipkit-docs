@@ -1,0 +1,94 @@
+---
+title: 'Public Pages'
+---
+
+## Index
+
+The main page for your site is located at `src/app/(root)/page.tsx`. This is the entry point for your site and is where you can start building your site.
+
+<Accordion title="/">
+src/app/(root)/page.tsx
+
+```tsx
+import {
+  Feature,
+  FeaturesGrid,
+  Hero,
+  PlanCards,
+  Statement,
+} from '~/components';
+import { getPlans } from '~/core/plan/server';
+
+export default async function Page() {
+  const plans = await getPlans();
+
+  return (
+    <div className="space-y-32 md:space-y-40">
+      <Hero />
+
+      <Statement />
+
+      <Feature
+        title="Support for Astro & Next.js"
+        imageLight="https://assets.shipkit.app/placeholder/light/feature-astro-next.svg"
+        imageDark="https://assets.shipkit.app/placeholder/dark/feature-astro-next.svg"
+        text="ShipKit offers you the freedom to choose a boilerplate based on Astro or Next.js, empowering you to select the meta-framework that best fits your project's needs. This choice ensures you start with the strongest foundation possible, tailored to your development style."
+      />
+
+      <Feature
+        title="Multiple frameworks"
+        imageLight="https://assets.shipkit.app/placeholder/light/feature-frameworks.svg"
+        imageDark="https://assets.shipkit.app/placeholder/dark/feature-frameworks.svg"
+        text="With ShipKit, you can choose your favorite framework, including React, Vue, Svelte, Solid, or Preact - the choice is yours. You get to choose the tools you're comfortable with, making your development process smoother and much more enjoyable."
+        reverse
+      />
+
+      <FeaturesGrid />
+
+      <PlanCards
+        title="Pricing"
+        text="Save time and focus on building your product today"
+        plans={plans}
+      />
+    </div>
+  );
+}
+```
+</Accordion>
+
+## Pricing
+
+<Accordion title="/pricing">
+src/app/(root)/pricing/page.tsx
+
+```tsx
+import { PlanCards } from '~/components';
+import { getPlans } from '~/core/plan/server';
+
+export default async function Page() {
+  const plans = await getPlans();
+
+  return (
+    <PlanCards
+      title="Pricing"
+      text="Save time and focus on building your product today"
+      plans={plans}
+    />
+  );
+}
+```
+</Accordion>
+
+## FAQs
+
+<Accordion title="/faqs">
+src/app/(root)/faqs/page.tsx
+
+```tsx
+import { FAQs } from '~/components';
+
+export default async function Page() {
+  return <FAQs />;
+}
+```
+</Accordion>

@@ -1,0 +1,50 @@
+---
+title: 'Private Pages'
+---
+
+## Dashboard
+
+The main private page for your site is located at `src/app/dashboard/page.tsx`. Users must be authenticated to access this page.
+
+<Accordion title="/dashboard">
+src/app/dashboard/page.tsx
+
+```tsx
+export default async function Page() {
+  return <div>{/* Add private user content here */}</div>;
+}
+```
+</Accordion>
+
+Any page you add under /dashboard will be private. You can add as many pages as you like.
+The logic for checking if a user is authenticated is located in `src/app/dashboard/layout.tsx`.
+
+<Accordion title="Dashboard layout">
+src/app/dashboard/layout.tsx
+
+```tsx
+import { redirect } from 'next/navigation';
+import { DashboardHeader } from '~/components';
+import { getCurrentUser } from '~/core/auth/server';
+
+export default async function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const user = await getCurrentUser();
+
+  if (!user) {
+    redirect('/sign-in');
+  }
+
+  return (
+    <>
+      <DashboardHeader user={user} />
+
+      <main className="px-8 py-10 md:py-20">{children}</main>
+    </>
+  );
+}
+```
+</Accordion>

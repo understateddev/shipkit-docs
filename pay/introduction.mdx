@@ -1,0 +1,28 @@
+---
+title: 'Payments with Stripe'
+sidebarTitle: 'Introduction'
+---
+
+<img src="/images/stripe.png" alt="Stripe" />
+
+Sign up for a <a href="https://stripe.com" target="_blank">Stripe</a> account.
+
+## Environment variables
+
+Add your Stripe secret key and webhook secret to the `.env` file.
+
+```ini
+# .env
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+```
+
+## Local development
+
+Get started by installing the <a href="https://docs.stripe.com/stripe-cli" target="_blank">Stripe CLI</a>.
+
+Then forward the Stripe webhook events to your local server.
+
+```
+stripe listen --forward-to localhost:3000/pay/webhook
+```

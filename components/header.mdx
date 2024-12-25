@@ -1,0 +1,81 @@
+---
+title: 'Header'
+---
+
+<img src="/images/header.png" alt="Header" />
+
+## Usage
+
+<Tabs>
+  <Tab title="Astro">
+    ```tsx
+    ---
+    import { Header } from '~/components';
+    ---
+    
+    <Header user={Astro.locals.user} />
+    ```
+  </Tab>
+
+  <Tab title="Next.js">
+    ```tsx
+    import { Header } from '~/components';
+    import { getCurrentUser } from '~/core/auth/server';
+
+    export default async function Page() {
+      const user = await getCurrentUser();
+
+      return <Header user={user} />;
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Props
+
+<ResponseField name="user" type="User | null" required>
+  The current user. (<a href="#user">User</a>)
+</ResponseField>
+
+<ResponseField name="isMinimal" type="boolean">
+  Minimal version of the header that only includes the logo. Useful for auth pages such as sign in and sign up.
+</ResponseField>
+
+## Content
+
+To update the content of the header, edit `site.name` and `site.header.links` in `src/config/site.ts`.
+
+```typescript
+import { env } from '~/core/env';
+
+export const site = {
+  name: 'ShipKit',
+  header: {
+    links: [
+      {
+        title: 'Overview',
+        href: '/',
+        target: '_self',
+      },
+      {
+        title: 'Pricing',
+        href: '/pricing',
+        target: '_self',
+      },
+      {
+        title: 'FAQs',
+        href: '/faqs',
+        target: '_self',
+      },
+    ],
+  },
+};
+```
+
+## Types
+
+### User
+
+```typescript
+import type { User } from '~/core/auth';
+```

@@ -1,0 +1,25 @@
+---
+title: 'Private Pages'
+---
+
+## Dashboard
+
+The main private page for your site is located at `src/pages/dashboard/index.astro`. Users must be authenticated to access this page.
+
+<Accordion title="/dashboard">
+src/pages/dashboard/index.astro
+
+```tsx
+---
+import { DashboardLayout } from '~/layouts';
+
+const user = Astro.locals.user;
+
+if (!user) {
+  return Astro.redirect('/');
+}
+---
+
+<DashboardLayout />
+```
+</Accordion>

@@ -1,0 +1,152 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "ShipKit Docs",
+  "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "colors": {
+    "primary": "#00B98D",
+    "light": "#00B98D",
+    "dark": "#0D9373",
+    "background": {
+      "light": "#fff",
+      "dark": "#000"
+    },
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
+  },
+  "modeToggle": {
+    "default": "dark",
+    "isHidden": true
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "https://shipkit.app/contact"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Dashboard",
+    "url": "https://shipkit.app/dashboard"
+  },
+  "tabs": [
+    {
+      "name": "Components",
+      "url": "components"
+    }
+  ],
+  "anchors": [],
+  "navigation": [
+    {
+      "group": "Quickstart",
+      "pages": ["introduction", "download", "cli"]
+    },
+    {
+      "group": "Astro",
+      "pages": [
+        "astro/getting-started",
+        "astro/public-pages",
+        "astro/private-pages"
+      ]
+    },
+    {
+      "group": "Next.js",
+      "pages": [
+        "next/getting-started",
+        "next/public-pages",
+        "next/private-pages"
+      ]
+    },
+    {
+      "group": "Frameworks",
+      "pages": [
+        "frameworks/introduction",
+        "frameworks/react",
+        "frameworks/vue",
+        "frameworks/svelte",
+        "frameworks/solid",
+        "frameworks/preact"
+      ]
+    },
+    {
+      "group": "Databases",
+      "pages": [
+        "databases/introduction",
+        "databases/drizzle",
+        "databases/prisma",
+        "databases/postgresql",
+        "databases/mysql",
+        "databases/sqlite",
+        "databases/neon",
+        "databases/turso"
+      ]
+    },
+    {
+      "group": "Authentication",
+      "pages": [
+        "auth/introduction",
+        "auth/lucia",
+        "auth/supabase",
+        "auth/clerk",
+        "auth/google"
+      ]
+    },
+    {
+      "group": "Payments",
+      "pages": ["pay/introduction"]
+    },
+    {
+      "group": "Emails",
+      "pages": ["emails/introduction"]
+    },
+    {
+      "group": "Design",
+      "pages": ["design/introduction"]
+    },
+    {
+      "group": "Analytics",
+      "pages": [
+        "analytics/introduction",
+        "analytics/posthog",
+        "analytics/plausible"
+      ]
+    },
+    {
+      "group": "Deploy",
+      "pages": [
+        "deploy/introduction",
+        "deploy/node",
+        "deploy/netlify",
+        "deploy/vercel"
+      ]
+    },
+    {
+      "group": "Support",
+      "pages": ["support/email"]
+    },
+    {
+      "group": "Components",
+      "pages": [
+        "components/introduction",
+        "components/dashboardheader",
+        "components/faqs",
+        "components/feature",
+        "components/featuresgrid",
+        "components/footer",
+        "components/header",
+        "components/hero",
+        "components/plancards",
+        "components/statement",
+        "components/ui"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/ShipKitApp",
+    "github": "https://github.com/shipkitorg"
+  }
+}

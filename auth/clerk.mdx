@@ -1,0 +1,39 @@
+---
+title: 'Clerk'
+---
+
+<img src="/images/clerk.png" alt="Clerk" />
+
+<Note>
+  Clerk is only available for React projects
+</Note>
+
+Clerk brings a comprehensive set of user management and authentication features to ShipKit. It excels in providing customizable, secure authentication flows, including two-factor authentication and user management capabilities, tailored to enhance user experience and security.
+
+## Environment variables
+
+Sign up for a <a href="https://clerk.com" target="_blank">Clerk</a> account and create a new project.
+
+Add your public Clerk publishable key, sign-in URL, sign-up URL, and secret key to the `.env` file.
+
+<Tabs>
+  <Tab title="Astro">
+    ```ini
+    # .env
+    PUBLIC_CLERK_PUBLISHABLE_KEY=
+    PUBLIC_CLERK_SIGN_IN_URL=
+    PUBLIC_CLERK_SIGN_UP_URL=
+    CLERK_SECRET_KEY=
+    ```
+  </Tab>
+
+  <Tab title="Next.js">
+    ```ini
+    # .env
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+    CLERK_SECRET_KEY=
+    ```
+  </Tab>
+</Tabs>

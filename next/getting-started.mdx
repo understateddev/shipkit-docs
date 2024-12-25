@@ -1,0 +1,152 @@
+---
+title: 'Getting started with Next.js'
+sidebarTitle: 'Getting started'
+---
+
+<img src="/images/next.png" alt="Next.js" />
+
+## Installation
+
+Once you've downloaded your Next.js project, get started by installing all of the dependencies. You can do this by running the install command using your package manager of choice:
+
+<Tabs>
+  <Tab title="npm">
+    ```
+    npm install
+    ```
+  </Tab>
+  <Tab title="pnpm">
+    ```
+    pnpm install
+    ```
+  </Tab>
+  <Tab title="bun">
+    ```
+    bun install
+    ```
+  </Tab>
+  <Tab title="yarn">
+    ```
+    yarn install
+    ```
+  </Tab>
+</Tabs>
+
+## Environment variables
+
+Depending on which technologies you selected for your boilerplate, you'll need to fill in the `.env` file with the necessary environment variables.
+
+### Site
+
+This is the full URL of your site. By default, ShipKit will use port `:3000`.
+
+```ini
+# .env
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
+
+### Database
+
+Add your database URL to the `.env` file.
+
+```ini
+# .env
+DATABASE_URL=
+DATABASE_AUTH_TOKEN= # <-- Only for Turso
+```
+
+### Stripe
+
+Sign up for a <a href="https://stripe.com" target="_blank">Stripe</a> account.
+
+Add your Stripe secret key and webhook secret to the `.env` file.
+
+```ini
+# .env
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+```
+
+### Resend
+
+Sign up for a <a href="https://resend.com" target="_blank">Resend</a> account.
+
+Add your API key and audience ID to the `.env` file.
+
+```ini
+# .env
+RESEND_API_KEY=
+RESEND_AUDIENCE_ID=
+```
+
+### Lucia - Google OAuth
+
+<Accordion title="Environment variables">
+To use Lucia, you'll need to add your Google OAuth client ID, client secret, and redirect URI to the `.env` file.
+
+```ini
+# .env
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GOOGLE_CLIENT_REDIRECT_URI=
+```
+</Accordion>
+
+### Clerk
+<Accordion title="Environment variables">
+Sign up for a <a href="https://clerk.com" target="_blank">Clerk</a> account and create a new project.
+
+Add your public Clerk publishable key, sign-in URL, sign-up URL, and secret key to the `.env` file.
+
+```ini
+# .env
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=
+CLERK_SECRET_KEY=
+```
+</Accordion>
+
+### Supabase
+
+<Accordion title="Environment variables">
+Sign up for a <a href="https://supabase.com" target="_blank">Supabase</a> account and create a new project.
+
+Add your public Supabase URL, public Supabase anon key, and Supabase service role key to the `.env` file.
+
+```ini
+# .env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+</Accordion>
+
+## Local development
+
+Once you've installed all of the dependencies and filled in the `.env` file, you can start the development server using the following command:
+
+<Tabs>
+  <Tab title="npm">
+    ```
+    npm run dev
+    ```
+  </Tab>
+  <Tab title="pnpm">
+    ```
+    pnpm dev
+    ```
+  </Tab>
+  <Tab title="bun">
+    ```
+    bun dev
+    ```
+  </Tab>
+  <Tab title="yarn">
+    ```
+    yarn dev
+    ```
+  </Tab>
+</Tabs>
+
+Visit: [http://localhost:3000](http://localhost:3000)

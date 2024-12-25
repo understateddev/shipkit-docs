@@ -1,0 +1,21 @@
+---
+title: 'Drizzle'
+---
+
+<img src="/images/drizzle.png" alt="Drizzle" />
+
+Drizzle ORM in ShipKit provides a simple, effective way to handle database operations. Designed for developers who prefer lightweight solutions, Drizzle helps you manage database interactions without complex configurations, making it ideal for small to medium projects.
+
+## Schema
+
+The schema for Drizzle is found in `src/core/db/schema.ts`. This file contains the schema for the database tables and their relationships.
+
+## Usage
+
+```typescript
+import { db } from '~/core/db';
+
+const user = await db.query.user.findFirst({
+  where: (table, { eq }) => eq(table.id, userId),
+});
+```

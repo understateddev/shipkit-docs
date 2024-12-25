@@ -1,0 +1,33 @@
+---
+title: 'Emails with Resend'
+sidebarTitle: 'Introduction'
+---
+
+<img src="/images/resend.png" alt="Resend" />
+
+Resend is a simple, yet powerful email service that allows you to send transactional emails with ease. It's designed for developers looking for a lightweight, yet secure email system that integrates seamlessly with various frameworks.
+
+Sign up for a <a href="https://resend.com" target="_blank">Resend</a> account.
+
+## Environment variables
+
+Add your API key and audience ID to the `.env` file.
+
+```ini
+# .env
+RESEND_API_KEY=
+RESEND_AUDIENCE_ID=
+```
+
+## Usage
+
+```typescript
+import { sendEmail } from '~/core/email';
+
+await sendEmail({
+  subject: 'Test email',
+  to: 'user@test.com',
+  from: 'contact@yourcompany.com',
+  html: 'This is a test email from <b>ShipKit</b>.',
+})
+```
